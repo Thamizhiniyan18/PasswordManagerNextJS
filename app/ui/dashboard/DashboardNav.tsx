@@ -27,10 +27,10 @@ const DashboardNav = () => {
           key={link.name}
           href={link.path}
           className={clsx(
-            "w-60 h-12 flex justify-center items-center cursor-pointer rounded-full mx-0.5",
+            "w-60 h-12 flex justify-center items-center cursor-pointer rounded-full my-0.5",
             {
-              "bg-sky-400 text-white": pathname === link.path,
-              "hover:bg-slate-200": pathname !== link.path,
+              "bg-sky-400 text-white": pathname.startsWith(link.path),
+              "hover:bg-slate-200": !pathname.startsWith(link.path),
             }
           )}
         >

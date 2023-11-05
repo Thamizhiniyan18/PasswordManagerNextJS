@@ -9,7 +9,7 @@ const HomeNavDesktop = () => {
   const pathname = usePathname();
 
   const links = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/", notStartsWith: true },
     { name: "Dashboard", path: "/dashboard" },
     { name: "Login", path: "/login" },
     { name: "SignUp", path: "/signup" },
@@ -33,8 +33,12 @@ const HomeNavDesktop = () => {
             className={clsx(
               "w-28 h-12 flex justify-center items-center cursor-pointer rounded-full mx-0.5",
               {
-                "bg-sky-400 text-white": pathname === link.path,
-                "hover:bg-slate-200": pathname !== link.path,
+                "bg-sky-400 text-white": link.notStartsWith
+                  ? pathname === link.path
+                  : pathname.startsWith(link.path),
+                "hover:bg-slate-200": link.notStartsWith
+                  ? pathname !== link.path
+                  : !pathname.startsWith(link.path),
               }
             )}
           >
