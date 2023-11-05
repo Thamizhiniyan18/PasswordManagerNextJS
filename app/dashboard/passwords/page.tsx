@@ -16,15 +16,16 @@ const page = async ({
 }) => {
   const passwords = await getPasswords();
 
+  const selectedPassword: Passwords =
+    searchParams?.id &&
+    passwords.find((password) => password.id === searchParams?.id);
+
   const searchedPasswords: undefined | any | Passwords[] =
     searchParams?.search &&
     passwords.filter((password) =>
       password.account_description.startsWith(searchParams?.search)
     );
 
-  const selectedPassword: Passwords =
-    searchParams?.id &&
-    passwords.find((password) => password.id === searchParams?.id);
 
   return (
     // <PasswordsSkeleton />

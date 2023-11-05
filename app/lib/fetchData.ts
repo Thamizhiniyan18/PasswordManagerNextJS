@@ -4,12 +4,11 @@ import dbConnect from "./db-connect";
 
 export const getPasswords = async () => {
   unstable_noStore();
-  await dbConnect();
-  return await passwordModel.find({});
-  // try {
-  //   await dbConnect();
-  //   return await passwordModel.find({});
-  // } catch (error) {
-  //   return { error };
-  // }
+  try {
+    await dbConnect();
+    return await passwordModel.find({});
+  } catch (error) {
+    console.log("Database Error", error);
+    throw new Error("Failed to Fetch the Data");
+  }
 };
