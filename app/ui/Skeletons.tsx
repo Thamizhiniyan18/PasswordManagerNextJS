@@ -7,7 +7,7 @@ export const PasswordsSkeleton = () => {
 
   return (
     <div className="w-full h-full flex">
-      <div className="w-1/2 h-full mr-1 flex flex-col justify-start items-center max-h-full overflow-x-hidden">
+      <div className="w-1/2 h-full mr-1 flex flex-col justify-start items-center max-h-full overflow-hidden">
         <div className="w-[95%] h-14 flex justify-between items-center mb-1">
           <SearchBar placeholder="Search Password" />
           <Link

@@ -26,11 +26,10 @@ const page = async ({
       password.account_description.startsWith(searchParams?.search)
     );
 
-
   return (
     // <PasswordsSkeleton />
-    <div className="w-full h-full flex ">
-      <div className="w-1/2 h-full mr-1 flex flex-col justify-start items-center max-h-full overflow-x-hidden">
+    <div className="w-full h-[calc(100%-56px)] flex overflow-hidden">
+      <div className="sm:w-full md:w-full lg:w-[95%] xl:w-1/2 h-full mr-1 flex flex-col justify-start items-center max-h-full overflow-hidden">
         <div className="w-[95%] h-14 flex justify-between items-center mb-1">
           <SearchBar placeholder="Search Password" />
           <Link
@@ -40,30 +39,35 @@ const page = async ({
             Add Password
           </Link>
         </div>
-        {searchedPasswords
-          ? searchedPasswords.map((password: Passwords, index: number) => (
-              <Password
-                key={index}
-                _id={password._id.toString()}
-                account_description={password.account_description}
-                username={password.username}
-                password={password.password}
-                password_score={password.password_score}
-              />
-            ))
-          : passwords.map((password: Passwords, index) => (
-              <Password
-                key={index}
-                _id={password._id.toString()}
-                account_description={password.account_description}
-                username={password.username}
-                password={password.password}
-                password_score={password.password_score}
-              />
-            ))}
+
+        <div className="w-full h-full flex flex-col justify-start items-center mb-1 overflow-x-hidden">
+          {searchedPasswords
+            ? searchedPasswords.map((password: Passwords, index: number) => (
+                <Password
+                  key={index}
+                  _id={password._id.toString()}
+                  account_description={password.account_description}
+                  username={password.username}
+                  password={password.password}
+                  password_score={password.password_score}
+                  url={password.url}
+                />
+              ))
+            : passwords.map((password: Passwords, index) => (
+                <Password
+                  key={index}
+                  _id={password._id.toString()}
+                  account_description={password.account_description}
+                  username={password.username}
+                  password={password.password}
+                  password_score={password.password_score}
+                  url={password.url}
+                />
+              ))}
+        </div>
       </div>
-      <div className="w-1/2 h-full ml-1">
-        <p>{selectedPassword?._id}</p>
+      <div className="hidden xl:block w-1/2 h-full ml-1">
+        <p>{selectedPassword?._id.toString()}</p>
         <p>{selectedPassword?.account_description}</p>
         <p>{selectedPassword?.username}</p>
         <p>{selectedPassword?.password}</p>

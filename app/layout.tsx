@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import HomeNavDesktop from "./ui/HomeNavDesktop";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex w-screen min-h-screen justify-start items-center flex-col`}
       >
+        <ToastContainer />
         <HomeNavDesktop />
         {children}
       </body>

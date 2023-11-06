@@ -6,6 +6,7 @@ export interface Passwords extends mongoose.Document {
   password: string;
   account_description: string;
   password_score: number;
+  url: string;
 }
 
 const PasswordSchema = new mongoose.Schema<Passwords>(
@@ -30,6 +31,10 @@ const PasswordSchema = new mongoose.Schema<Passwords>(
     },
     password_score: {
       type: Number,
+      required: true,
+    },
+    url: {
+      type: String,
       required: true,
     },
   },
