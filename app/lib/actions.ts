@@ -24,23 +24,34 @@ const CreatePassword = PasswordSchema.omit({ user_id: true });
 const UpdatePassword = PasswordSchema.omit({ user_id: true });
 
 export const createPassword = async (user_id: string, formData: FormData) => {
-  const { account_description, password, password_score, username, url } =
-    CreatePassword.parse({
-      username: formData.get("username"),
-      password: formData.get("password"),
-      account_description: formData.get("account_description"),
-      password_score: formData.get("password_score"),
-      url: formData.get("url"),
-    });
+  console.log(`user_id: ${user_id}`);
+  console.log(`FormData: ${formData}`);
+  // const { account_description, password, password_score, username, url } =
+  //   CreatePassword.parse({
+  //     username: formData.get("username"),
+  //     password: formData.get("password"),
+  //     account_description: formData.get("account_description"),
+  //     password_score: formData.get("password_score"),
+  //     url: formData.get("url"),
+  //   });
 
-  await passwordModel.create({
-    user_id,
-    username,
-    password,
-    account_description,
-    password_score,
-    url,
-  });
+  // console.log({
+  //   user_id,
+  //   username,
+  //   password,
+  //   account_description,
+  //   password_score,
+  //   url,
+  // });
+
+  // await passwordModel.create({
+  //   user_id,
+  //   username,
+  //   password,
+  //   account_description,
+  //   password_score,
+  //   url,
+  // });
 
   revalidatePath("/dashboard/passwords");
   redirect("/dashboard/passwords");
