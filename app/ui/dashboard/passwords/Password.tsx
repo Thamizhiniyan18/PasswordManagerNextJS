@@ -51,7 +51,7 @@ const Password = ({
   return (
     <div
       className={clsx(
-        "w-[95%] rounded-lg flex justify-between cursor-pointer my-1 shadow-xl hover:bg-sky-50"
+        "w-[95%] rounded-lg flex justify-between cursor-pointer my-1 shadow-xl md:hover:bg-sky-50"
       )}
     >
       <div
@@ -80,7 +80,7 @@ const Password = ({
         <br />
         {url ? (
           <Link href={url} target="_blank">
-            <ArrowTopRightOnSquareIcon className="text-sky-400 hover:text-white hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md" />
+            <ArrowTopRightOnSquareIcon className="text-sky-400 md:hover:text-white md:hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md" />
           </Link>
         ) : (
           <ArrowTopRightOnSquareIcon
@@ -92,7 +92,7 @@ const Password = ({
         <p>
           <ClipboardDocumentIcon
             title="Click to Copy Username"
-            className="text-sky-400 hover:text-white hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md"
+            className="text-sky-400 md:hover:text-white md:hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md"
             onClick={() =>
               navigator.clipboard
                 .writeText(username)
@@ -105,7 +105,7 @@ const Password = ({
         <p>
           <ClipboardDocumentIcon
             title="Click to Copy Password"
-            className="text-sky-400 hover:text-white hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md"
+            className="text-sky-400 md:hover:text-white md:hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md"
             onClick={() =>
               navigator.clipboard
                 .writeText(password)
@@ -119,13 +119,13 @@ const Password = ({
       <div className="h-full w-10 p-2">
         <br />
         <Link title="Click to Edit" href={`/dashboard/passwords/edit/${_id}`}>
-          <PencilSquareIcon className="text-sky-400 hover:text-white hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md" />
+          <PencilSquareIcon className="text-sky-400 md:hover:text-white md:hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md" />
         </Link>
         <br />
         <p>
           <TrashIcon
             title="Click to Delete"
-            className="text-red-500 hover:text-white hover:bg-red-500 w-6 h-6 flex justify-center items-center rounded-md"
+            className="text-red-500 md:hover:text-white md:hover:bg-red-500 w-6 h-6 flex justify-center items-center rounded-md"
             onClick={() => deletePassword(_id)}
           />
         </p>
