@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return <div className="w-full h-full">
-    Dashboard
+    Whoami
   </div>;
 };
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-const DashboardNav = () => {
+const DashboardNavDesktop = () => {
   const pathname = usePathname();
 
   const links = [
@@ -15,7 +15,7 @@ const DashboardNav = () => {
   ];
 
   return (
-    <div className="left-0 flex flex-col md:w-52 lg:w-72 h-[calc(100vh-80px)] justify-start items-center border-r md:px-2 lg:px-10">
+    <div className="hidden left-0 md:flex flex-col md:w-52 lg:w-72 h-[calc(100vh-80px)] justify-start items-center border-r md:px-2 lg:px-10">
       <Link
         href="/dashboard"
         className="sm:absolute md:relative w-full h-12 flex justify-center items-center text-3xl mb-10 hover:bg-slate-200 rounded-full"
@@ -41,4 +41,4 @@ const DashboardNav = () => {
   );
 };
 
-export default DashboardNav;
+export default DashboardNavDesktop;

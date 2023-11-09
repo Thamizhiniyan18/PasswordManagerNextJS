@@ -5,6 +5,7 @@ import HomeNavDesktop from "./ui/HomeNavDesktop";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import HomeNavMobile from "./ui/HomeNavMobile";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       >
         <ToastContainer />
         <HomeNavDesktop />
+        <HomeNavMobile />
         {children}
       </body>
     </html>

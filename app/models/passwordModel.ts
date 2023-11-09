@@ -35,7 +35,6 @@ const PasswordSchema = new mongoose.Schema<Passwords>(
     },
     url: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true }

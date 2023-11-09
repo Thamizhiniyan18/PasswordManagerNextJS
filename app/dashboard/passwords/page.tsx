@@ -5,6 +5,7 @@ import SearchBar from "@/app/ui/SearchBar";
 import Link from "next/link";
 import React from "react";
 import { PasswordsSkeleton } from "@/app/ui/Skeletons";
+import AddPasswordButton from "@/app/ui/buttons/dashboard/passwords/AddPasswordButton";
 
 const page = async ({
   searchParams,
@@ -28,19 +29,15 @@ const page = async ({
 
   return (
     // <PasswordsSkeleton />
-    <div className="w-full h-[calc(100%-56px)] flex overflow-hidden">
-      <div className="sm:w-full md:w-full lg:w-[95%] xl:w-1/2 h-full mr-1 flex flex-col justify-start items-center max-h-full overflow-hidden">
-        <div className="w-[95%] h-14 flex justify-between items-center mb-1">
+    <div className="w-full h-full md:h-[calc(100%-56px)] flex overflow-hidden">
+      <div className="w-full lg:w-[95%] xl:w-1/2 h-full md:mr-1 flex flex-col justify-start items-center max-h-full overflow-hidden">
+        <div className="w-[95%] h-12 md:h-14 flex justify-between items-center mb-1">
           <SearchBar placeholder="Search Password" />
-          <Link
-            href="/dashboard/passwords/create"
-            className="w-40 h-14 bg-sky-400 text-white flex justify-center items-center cursor-pointer rounded-full my-0.5 hover:shadow-lg"
-          >
-            Add Password
-          </Link>
+          <AddPasswordButton />
         </div>
 
         <div className="w-full h-full flex flex-col justify-start items-center mb-1 overflow-x-hidden">
+          {passwords.length === 0 && <p>No Passwords Created</p>}
           {searchedPasswords
             ? searchedPasswords.map((password: Passwords, index: number) => (
                 <Password

@@ -51,7 +51,7 @@ const Password = ({
   return (
     <div
       className={clsx(
-        "w-[95%] rounded-lg flex justify-between cursor-pointer my-1 shadow-xl min-w-[400px] hover:bg-sky-50"
+        "w-[95%] rounded-lg flex justify-between cursor-pointer my-1 shadow-xl hover:bg-sky-50"
       )}
     >
       <div
@@ -79,7 +79,7 @@ const Password = ({
       <div className="h-full w-10 p-2">
         <br />
         {url ? (
-          <Link href={url}>
+          <Link href={url} target="_blank">
             <ArrowTopRightOnSquareIcon className="text-sky-400 hover:text-white hover:bg-sky-400 w-6 h-6 flex justify-center items-center rounded-md" />
           </Link>
         ) : (
